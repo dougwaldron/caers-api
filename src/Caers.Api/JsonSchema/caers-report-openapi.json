@@ -1,0 +1,3001 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "CAERS Report Export OpenAPI Specification",
+        "description": "These services enable State, Local, Tribal authorities to download air emissions data that was reported by their industry in the Combined Air Emissions Reporting System (CAERS).",
+        "contact": {
+            "name": "Julia Gamas",
+            "email": "Gamas.Julia@epa.gov"
+        },
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://cdxapps.epa.gov/cef-web",
+            "description": "Generated server url"
+        }
+    ],
+    "security": [
+        {
+            "myOauth2Security": [
+                "slt:export"
+            ]
+        }
+    ],
+    "paths": {
+        "/api/public/export/report/{reportYear}": {
+            "get": {
+                "tags": [
+                    "Report Export"
+                ],
+                "summary": "Get detailed reports",
+                "description": "Get all report information for reports that match the provided criteria.",
+                "operationId": "exportJsonReport",
+                "parameters": [
+                    {
+                        "name": "reportYear",
+                        "in": "path",
+                        "description": "What reporting year to return results for.",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "modifiedStartDate",
+                        "in": "query",
+                        "description": "Earliest last modified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "modifiedEndDate",
+                        "in": "query",
+                        "description": "Latest last modified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "certifiedStartDate",
+                        "in": "query",
+                        "description": "Earliest certified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "certifiedEndDate",
+                        "in": "query",
+                        "description": "Latest certified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "agencyFacilityId",
+                        "in": "query",
+                        "description": "List of Agency Facility IDs to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "query",
+                        "description": "List of internal CAERS report IDs to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "reportStatus",
+                        "in": "query",
+                        "description": "List of report statuses to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "NEW",
+                                    "APPROVED",
+                                    "IN_PROGRESS",
+                                    "RETURNED",
+                                    "SUBMITTED",
+                                    "ADVANCED_QA",
+                                    "VALIDATED",
+                                    "NOT_STARTED"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 500
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/EmissionsReport"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/public/export/report/{reportYear}/list": {
+            "get": {
+                "tags": [
+                    "Report Export"
+                ],
+                "summary": "Get list of reports",
+                "description": "Get list of reports based on provided criteria.",
+                "operationId": "getReportList",
+                "parameters": [
+                    {
+                        "name": "reportYear",
+                        "in": "path",
+                        "description": "What reporting year to return results for.",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "modifiedStartDate",
+                        "in": "query",
+                        "description": "Earliest last modified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "modifiedEndDate",
+                        "in": "query",
+                        "description": "Latest last modified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "certifiedStartDate",
+                        "in": "query",
+                        "description": "Earliest certified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "certifiedEndDate",
+                        "in": "query",
+                        "description": "Latest certified date that will be returned in the results.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    {
+                        "name": "agencyFacilityId",
+                        "in": "query",
+                        "description": "List of Agency Facility IDs to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "query",
+                        "description": "List of internal CAERS report IDs to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "reportStatus",
+                        "in": "query",
+                        "description": "List of report statuses to return results for.",
+                        "required": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "NEW",
+                                    "APPROVED",
+                                    "IN_PROGRESS",
+                                    "RETURNED",
+                                    "SUBMITTED",
+                                    "ADVANCED_QA",
+                                    "VALIDATED",
+                                    "NOT_STARTED"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ReportInfo"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Address": {
+                "required": [
+                    "addressText",
+                    "localityName",
+                    "postalCode",
+                    "state"
+                ],
+                "type": "object",
+                "properties": {
+                    "addressText": {
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "supplementalAddressText": {
+                        "type": "string"
+                    },
+                    "localityName": {
+                        "maxLength": 60,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "county": {
+                        "$ref": "#/components/schemas/County"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/State"
+                    },
+                    "country": {
+                        "$ref": "#/components/schemas/Country"
+                    },
+                    "postalCode": {
+                        "maxLength": 10,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "addressComment": {
+                        "type": "string"
+                    },
+                    "locationAddressIsReadOnly": {
+                        "type": "string"
+                    },
+                    "localityIsReadOnly": {
+                        "type": "string"
+                    },
+                    "postalCodeIsReadOnly": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AircraftEngineTypeCode": {
+                "required": [
+                    "code"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 10,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "faaAircraftType": {
+                        "type": "string"
+                    },
+                    "edmsAccode": {
+                        "type": "string"
+                    },
+                    "engineManufacturer": {
+                        "type": "string"
+                    },
+                    "engine": {
+                        "type": "string"
+                    },
+                    "edmsUid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AlternativeFacilityIdentification": {
+                "required": [
+                    "identifier"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "programSystemCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "identifierIsReadOnly": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "AlternativeFacilityNameDataType": {
+                "required": [
+                    "alternativeName",
+                    "programSystemCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "alternativeName": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AlternativeName"
+                        }
+                    },
+                    "programSystemCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProgramSystemCode"
+                        }
+                    },
+                    "alternativeNameTypeText": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AlternativeNameTypeText"
+                        }
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EffectiveDate"
+                        }
+                    }
+                }
+            },
+            "Control": {
+                "required": [
+                    "controlMeasureCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "identification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "description": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCodeYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "controlMeasureCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "percentControlEffectiveness": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "numberOperatingMonths": {
+                        "maximum": 12,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "upgradeDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "upgradeDescription": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "controlPollutants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ControlPollutant"
+                        }
+                    },
+                    "controlIsReadOnly": {
+                        "type": "string"
+                    },
+                    "controlManufactureMake": {
+                        "type": "string"
+                    },
+                    "controlManufactureModel": {
+                        "type": "string"
+                    },
+                    "mainIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "ControlApproachDataType": {
+                "required": [
+                    "controlMeasure",
+                    "controlPollutant"
+                ],
+                "type": "object",
+                "properties": {
+                    "controlApproachDescription": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ControlApproachDescription"
+                        }
+                    },
+                    "percentControlApproachCaptureEfficiency": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentControlApproachCaptureEfficiency"
+                        }
+                    },
+                    "percentControlApproachEffectiveness": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentControlApproachEffectiveness"
+                        }
+                    },
+                    "percentControlApproachPenetration": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentControlApproachPenetration"
+                        }
+                    },
+                    "firstInventoryYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "FirstInventoryYear"
+                        }
+                    },
+                    "lastInventoryYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "LastInventoryYear"
+                        }
+                    },
+                    "controlApproachComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ControlApproachComment"
+                        }
+                    },
+                    "controlMeasure": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ControlMeasure"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/ControlMeasureDataType"
+                        }
+                    },
+                    "controlPollutant": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ControlPollutant"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/ControlPollutantDataType"
+                        }
+                    }
+                }
+            },
+            "ControlAssignment": {
+                "required": [
+                    "averagePercentApportionment",
+                    "sequenceNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "controlIdentification": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "pathIdentification": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "averagePercentApportionment": {
+                        "maximum": 100.00,
+                        "type": "number"
+                    },
+                    "sequenceNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "mainPathIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    },
+                    "mainControlIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "ControlMeasureDataType": {
+                "required": [
+                    "controlMeasureCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "controlMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ControlMeasureCode"
+                        }
+                    }
+                }
+            },
+            "ControlPath": {
+                "type": "object",
+                "properties": {
+                    "identification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "description": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "percentPathEffectiveness": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "controlPathDefinition": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ControlAssignment"
+                        }
+                    },
+                    "controlPathPollutants": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ControlPollutant"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "pathIsReadOnly": {
+                        "type": "string"
+                    },
+                    "mainIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "ControlPollutant": {
+                "required": [
+                    "percentControlMeasuresReductionEfficiency",
+                    "pollutantCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "pollutantCode": {
+                        "$ref": "#/components/schemas/Pollutant"
+                    },
+                    "percentControlMeasuresReductionEfficiency": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    }
+                }
+            },
+            "ControlPollutantDataType": {
+                "required": [
+                    "pollutantCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "pollutantCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PollutantCode"
+                        }
+                    },
+                    "percentControlMeasuresReductionEfficiency": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentControlMeasuresReductionEfficiency"
+                        }
+                    }
+                }
+            },
+            "Country": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 10,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "County": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 3,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 43,
+                        "minLength": 0,
+                        "type": "string"
+                    }
+                }
+            },
+            "DeleteReportingPeriodDataType": {
+                "required": [
+                    "reportingPeriodTypeCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "reportingPeriodTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ReportingPeriodTypeCode"
+                        }
+                    },
+                    "emissionOperatingTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionOperatingTypeCode"
+                        }
+                    }
+                }
+            },
+            "Emission": {
+                "required": [
+                    "emissionCalculationMethodCode",
+                    "pollutantCode",
+                    "totalEmissions"
+                ],
+                "type": "object",
+                "properties": {
+                    "emissionFactorFormula": {
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "emissionFormulaVariables": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EmissionFormulaVariable"
+                        }
+                    },
+                    "overallControlPercent": {
+                        "maximum": 99.999999,
+                        "type": "number"
+                    },
+                    "totalManualEntry": {
+                        "type": "boolean"
+                    },
+                    "calculatedEmissionsTons": {
+                        "type": "number"
+                    },
+                    "calculationComment": {
+                        "maxLength": 4000,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "pollutantCode": {
+                        "$ref": "#/components/schemas/Pollutant"
+                    },
+                    "totalEmissions": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "emissionCalculationMethodCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "emissionFactor": {
+                        "type": "number"
+                    },
+                    "emissionFactorText": {
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "emissionFactorNumeratorUnitofMeasureCode": {
+                        "$ref": "#/components/schemas/MeasureUnit"
+                    },
+                    "emissionFactorDenominatorUnitofMeasureCode": {
+                        "$ref": "#/components/schemas/MeasureUnit"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "stackTestDate": {
+                        "type": "string",
+                        "format": "date"
+                    }
+                }
+            },
+            "EmissionFormulaVariable": {
+                "required": [
+                    "emissionFormulaVariableCode",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "emissionFormulaVariableCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "value": {
+                        "type": "number"
+                    }
+                }
+            },
+            "EmissionsDataType": {
+                "required": [
+                    "pollutantCode",
+                    "totalEmissions"
+                ],
+                "type": "object",
+                "properties": {
+                    "pollutantCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PollutantCode"
+                        }
+                    },
+                    "totalEmissions": {
+                        "type": "string",
+                        "xml": {
+                            "name": "TotalEmissions"
+                        }
+                    },
+                    "emissionsUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionsUnitofMeasureCode"
+                        }
+                    },
+                    "emissionFactor": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionFactor"
+                        }
+                    },
+                    "emissionFactorNumeratorUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionFactorNumeratorUnitofMeasureCode"
+                        }
+                    },
+                    "emissionFactorDenominatorUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionFactorDenominatorUnitofMeasureCode"
+                        }
+                    },
+                    "emissionFactorText": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionFactorText"
+                        }
+                    },
+                    "emissionCalculationMethodCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionCalculationMethodCode"
+                        }
+                    },
+                    "emissionsComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionsComment"
+                        }
+                    }
+                }
+            },
+            "EmissionsProcess": {
+                "required": [
+                    "sourceClassificationCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "identification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "description": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCodeYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "sourceClassificationCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "sccShortName": {
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "sccDescription": {
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "aircraftEngineTypeCode": {
+                        "$ref": "#/components/schemas/AircraftEngineTypeCode"
+                    },
+                    "reportingPeriods": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReportingPeriod"
+                        }
+                    },
+                    "releasePointApportionment": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReleasePointAppt"
+                        }
+                    },
+                    "emissionsTypeCode": {
+                        "type": "string"
+                    },
+                    "processIsReadOnly": {
+                        "type": "string"
+                    },
+                    "processRegulation": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulationDataType"
+                        }
+                    },
+                    "processControlApproach": {
+                        "$ref": "#/components/schemas/ControlApproachDataType"
+                    },
+                    "deleteReportingPeriod": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DeleteReportingPeriodDataType"
+                        }
+                    },
+                    "permitStatusBeginYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "permitStatusEndYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "maximumTheoreticalEmissions": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "potentialToEmit": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "isBillable": {
+                        "type": "string"
+                    },
+                    "insignificantSource": {
+                        "type": "string"
+                    },
+                    "mainIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "EmissionsReport": {
+                "required": [
+                    "agencyFacilityIdentifier",
+                    "emissionsYear",
+                    "programSystemCode",
+                    "version"
+                ],
+                "type": "object",
+                "properties": {
+                    "agencyFacilityIdentifier": {
+                        "maxLength": 30,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "programSystemCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "emissionsYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "NEW",
+                            "APPROVED",
+                            "IN_PROGRESS",
+                            "RETURNED",
+                            "SUBMITTED",
+                            "ADVANCED_QA",
+                            "VALIDATED",
+                            "NOT_STARTED"
+                        ]
+                    },
+                    "validationStatus": {
+                        "type": "string",
+                        "enum": [
+                            "PASSED",
+                            "PASSED_WARNINGS",
+                            "SEMIANNUAL_PASSED",
+                            "SEMIANNUAL_PASSED_WARNINGS",
+                            "UNVALIDATED"
+                        ]
+                    },
+                    "eisLastSubmissionStatus": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "facilitySite": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FacilitySite"
+                        }
+                    },
+                    "userIdentifier": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "modelVersion": {
+                        "type": "string"
+                    },
+                    "emissionsCreationDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "submittalComment": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LocationDataType"
+                        }
+                    },
+                    "event": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EventDataType"
+                        }
+                    }
+                }
+            },
+            "EmissionsUnit": {
+                "required": [
+                    "unitTypeCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "identification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "description": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCodeYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "designCapacity": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "unitTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "emissionsProcesses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EmissionsProcess"
+                        }
+                    },
+                    "unitOperationDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "permitStatusCode": {
+                        "type": "string"
+                    },
+                    "permitStatusBeginYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "permitStatusEndYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "unitIsReadOnly": {
+                        "type": "string"
+                    },
+                    "designCapacityIsReadOnly": {
+                        "type": "string"
+                    },
+                    "maximumTheoreticalEmissions": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "potentialToEmit": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "unitNaics": {
+                        "type": "string"
+                    },
+                    "permitByRule": {
+                        "type": "string"
+                    },
+                    "engineUseType": {
+                        "type": "string"
+                    },
+                    "engineUseTypeDescription": {
+                        "type": "string"
+                    },
+                    "federalEnforcableLimitText": {
+                        "type": "string"
+                    },
+                    "permitLimitText": {
+                        "type": "string"
+                    },
+                    "unitModificationDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "unitModificationDescription": {
+                        "type": "string"
+                    },
+                    "reportingRequirement": {
+                        "type": "string"
+                    },
+                    "mainIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "EventDataType": {
+                "required": [
+                    "eventIdentifier",
+                    "programSystemCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "eventIdentifier": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventIdentifier"
+                        }
+                    },
+                    "programSystemCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProgramSystemCode"
+                        }
+                    },
+                    "eventName": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventName"
+                        }
+                    },
+                    "landManager": {
+                        "type": "string",
+                        "xml": {
+                            "name": "LandManager"
+                        }
+                    },
+                    "locationDescription": {
+                        "type": "string",
+                        "xml": {
+                            "name": "LocationDescription"
+                        }
+                    },
+                    "eventClassificationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventClassificationCode"
+                        }
+                    },
+                    "eventSizeSourceCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventSizeSourceCode"
+                        }
+                    },
+                    "containmentDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "ContainmentDate"
+                        }
+                    },
+                    "recurrenceIndicatorCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "RecurrenceIndicatorCode"
+                        }
+                    },
+                    "recurrenceYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "RecurrenceYear"
+                        }
+                    },
+                    "groundBasedDataSourceCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "GroundBasedDataSourceCode"
+                        }
+                    },
+                    "remoteSensingDataSourceCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "RemoteSensingDataSourceCode"
+                        }
+                    },
+                    "fuelConsumptionAndEmissionsModelCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelConsumptionAndEmissionsModelCode"
+                        }
+                    },
+                    "fuelTypeModelCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelTypeModelCode"
+                        }
+                    },
+                    "fuelSelectionCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelSelectionCode"
+                        }
+                    },
+                    "ignitionMethodCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "IgnitionMethodCode"
+                        }
+                    },
+                    "ignitionLocationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "IgnitionLocationCode"
+                        }
+                    },
+                    "ignitionOrientationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "IgnitionOrientationCode"
+                        }
+                    },
+                    "eventComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventComment"
+                        }
+                    },
+                    "eventReportingPeriod": {
+                        "type": "array",
+                        "xml": {
+                            "name": "EventReportingPeriod"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/EventReportingPeriodDataType"
+                        }
+                    }
+                }
+            },
+            "EventEmissionsProcessDataType": {
+                "required": [
+                    "eventEmissionsProcessEmissions",
+                    "sourceClassificationCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "sourceClassificationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SourceClassificationCode"
+                        }
+                    },
+                    "fuelConfigurationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelConfigurationCode"
+                        }
+                    },
+                    "fuelLoading": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelLoading"
+                        }
+                    },
+                    "fuelLoadingUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "FuelLoadingUnitofMeasureCode"
+                        }
+                    },
+                    "amountofFuelConsumed": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AmountofFuelConsumed"
+                        }
+                    },
+                    "amountofFuelConsumedUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AmountofFuelConsumedUnitofMeasureCode"
+                        }
+                    },
+                    "percentTenHourFuelMoisture": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentTenHourFuelMoisture"
+                        }
+                    },
+                    "percentOneThousandHourFuelMoisture": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentOneThousandHourFuelMoisture"
+                        }
+                    },
+                    "percentLiveFuelMoisture": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentLiveFuelMoisture"
+                        }
+                    },
+                    "percentDuffFuelMoisture": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentDuffFuelMoisture"
+                        }
+                    },
+                    "heatRelease": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HeatRelease"
+                        }
+                    },
+                    "heatReleaseUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HeatReleaseUnitofMeasureCode"
+                        }
+                    },
+                    "emissionReductionTechniqueCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionReductionTechniqueCode"
+                        }
+                    },
+                    "eventEmissionsProcessComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventEmissionsProcessComment"
+                        }
+                    },
+                    "eventEmissionsProcessEmissions": {
+                        "type": "array",
+                        "xml": {
+                            "name": "EventEmissionsProcessEmissions"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/EmissionsDataType"
+                        }
+                    }
+                }
+            },
+            "EventLocationDataType": {
+                "required": [
+                    "eventEmissionsProcess"
+                ],
+                "type": "object",
+                "properties": {
+                    "stateAndCountyFIPSCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "StateAndCountyFIPSCode"
+                        }
+                    },
+                    "tribalCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "TribalCode"
+                        }
+                    },
+                    "stateAndCountryFIPSCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "StateAndCountryFIPSCode"
+                        }
+                    },
+                    "eventGeographicCoordinates": {
+                        "$ref": "#/components/schemas/GeographicCoordinatesDataType"
+                    },
+                    "eventEmissionsProcess": {
+                        "type": "array",
+                        "xml": {
+                            "name": "EventEmissionsProcess"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/EventEmissionsProcessDataType"
+                        }
+                    }
+                }
+            },
+            "EventReportingPeriodDataType": {
+                "required": [
+                    "eventBeginDate",
+                    "eventEndDate",
+                    "eventLocation"
+                ],
+                "type": "object",
+                "properties": {
+                    "eventBeginDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EventBeginDate"
+                        }
+                    },
+                    "eventEndDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EventEndDate"
+                        }
+                    },
+                    "eventStageCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventStageCode"
+                        }
+                    },
+                    "beginHour": {
+                        "type": "string",
+                        "xml": {
+                            "name": "BeginHour"
+                        }
+                    },
+                    "endHour": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EndHour"
+                        }
+                    },
+                    "eventReportingPeriodComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EventReportingPeriodComment"
+                        }
+                    },
+                    "eventLocation": {
+                        "type": "array",
+                        "xml": {
+                            "name": "EventLocation"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/EventLocationDataType"
+                        }
+                    }
+                }
+            },
+            "FacilityContact": {
+                "required": [
+                    "email",
+                    "firstName",
+                    "lastName",
+                    "phone",
+                    "streetAddress",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "prefix": {
+                        "maxLength": 15,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "email": {
+                        "maxLength": 255,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "phone": {
+                        "maxLength": 10,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "phoneExt": {
+                        "maxLength": 5,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "streetAddress": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "mailingStreetAddress": {
+                        "$ref": "#/components/schemas/Address"
+                    }
+                }
+            },
+            "FacilityIdentification": {
+                "required": [
+                    "identifier"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "maxLength": 30,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "programSystemCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "identifierIsReadOnly": {
+                        "type": "string"
+                    },
+                    "tribalCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "stateAndCountyFIPSCode": {
+                        "type": "string"
+                    },
+                    "stateAndCountryFIPSCode": {
+                        "type": "string"
+                    }
+                }
+            },
+            "FacilityNAICS": {
+                "required": [
+                    "code",
+                    "naicsCodeType"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maximum": 999999,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "naicsCodeType": {
+                        "type": "string",
+                        "enum": [
+                            "PRIMARY",
+                            "SECONDARY",
+                            "TERTIARY"
+                        ]
+                    }
+                }
+            },
+            "FacilitySite": {
+                "required": [
+                    "mailingAddress",
+                    "name",
+                    "statusCode",
+                    "statusCodeYear"
+                ],
+                "type": "object",
+                "properties": {
+                    "eisProgramId": {
+                        "maxLength": 22,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "facilityCategoryCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "name": {
+                        "maxLength": 80,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "description": {
+                        "maxLength": 100,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "facilitySourceTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCodeYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "facilityIdentification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FacilityIdentification"
+                        }
+                    },
+                    "alternativeFacilityIdentification": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AlternativeFacilityIdentification"
+                        }
+                    },
+                    "alternativeFacilityName": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AlternativeFacilityNameDataType"
+                        }
+                    },
+                    "facilitySiteAddress": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Address"
+                        }
+                    },
+                    "mailingAddress": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "facilitySiteGeographicCoordinates": {
+                        "$ref": "#/components/schemas/GeographicCoordinates"
+                    },
+                    "emissionsUnits": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EmissionsUnit"
+                        }
+                    },
+                    "releasePoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ReleasePoint"
+                        }
+                    },
+                    "controlPaths": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ControlPath"
+                        }
+                    },
+                    "controls": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Control"
+                        }
+                    },
+                    "facilityNAICS": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FacilityNAICS"
+                        }
+                    },
+                    "facilityContacts": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/FacilityContact"
+                        }
+                    },
+                    "hapFacilityCategoryCode": {
+                        "type": "string"
+                    },
+                    "coordinateTolerance": {
+                        "type": "string"
+                    },
+                    "facilitySiteComment": {
+                        "type": "string"
+                    },
+                    "facilityNameIsReadOnly": {
+                        "type": "string"
+                    },
+                    "locationIsReadOnly": {
+                        "type": "string"
+                    },
+                    "primaryNAICSIsReadOnly": {
+                        "type": "string"
+                    },
+                    "permitStatusBeginYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "permitStatusEndYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "maximumTheoreticalEmissions": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "potentialToEmit": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "isBillable": {
+                        "type": "string"
+                    },
+                    "hasSensitiveData": {
+                        "type": "string"
+                    },
+                    "permitNumber": {
+                        "type": "string"
+                    },
+                    "permitTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "employeeCount": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "constructionLimitDescription": {
+                        "type": "string"
+                    },
+                    "sltFacilityCategoryCode": {
+                        "type": "string"
+                    },
+                    "mainFacilitySiteAddress": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "mainFacilityIdentification": {
+                        "$ref": "#/components/schemas/FacilityIdentification"
+                    }
+                }
+            },
+            "GeographicCoordinates": {
+                "required": [
+                    "latitudeMeasure",
+                    "longitudeMeasure"
+                ],
+                "type": "object",
+                "properties": {
+                    "latitudeMeasure": {
+                        "type": "string"
+                    },
+                    "longitudeMeasure": {
+                        "type": "string"
+                    },
+                    "midPoint2LatitudeMeasure": {
+                        "type": "string"
+                    },
+                    "midPoint2LongitudeMeasure": {
+                        "type": "string"
+                    },
+                    "sourceMapScaleNumber": {
+                        "type": "string"
+                    },
+                    "horizontalAccuracyMeasure": {
+                        "type": "string"
+                    },
+                    "horizontalAccuracyUnitofMeasure": {
+                        "type": "string"
+                    },
+                    "horizontalCollectionMethodCode": {
+                        "type": "string"
+                    },
+                    "horizontalReferenceDatumCode": {
+                        "type": "string"
+                    },
+                    "geographicReferencePointCode": {
+                        "type": "string"
+                    },
+                    "dataCollectionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "geographicComment": {
+                        "type": "string"
+                    },
+                    "verticalMeasure": {
+                        "type": "string"
+                    },
+                    "verticalUnitofMeasureCode": {
+                        "type": "string"
+                    },
+                    "verticalCollectionMethodCode": {
+                        "type": "string"
+                    },
+                    "verticalReferenceDatumCode": {
+                        "type": "string"
+                    },
+                    "verificationMethodCode": {
+                        "type": "string"
+                    },
+                    "coordinateDataSourceCode": {
+                        "type": "string"
+                    },
+                    "geometricTypeCode": {
+                        "type": "string"
+                    },
+                    "areaWithinPerimeter": {
+                        "type": "string"
+                    },
+                    "areaWithinPerimeterUnitofMeasureCode": {
+                        "type": "string"
+                    },
+                    "geographicCoordinateIsReadOnly": {
+                        "type": "string"
+                    }
+                }
+            },
+            "GeographicCoordinatesDataType": {
+                "required": [
+                    "latitudeMeasure",
+                    "longitudeMeasure"
+                ],
+                "type": "object",
+                "properties": {
+                    "latitudeMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "LatitudeMeasure"
+                        }
+                    },
+                    "longitudeMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "LongitudeMeasure"
+                        }
+                    },
+                    "midPoint2LatitudeMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "MidPoint2LatitudeMeasure"
+                        }
+                    },
+                    "midPoint2LongitudeMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "MidPoint2LongitudeMeasure"
+                        }
+                    },
+                    "sourceMapScaleNumber": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SourceMapScaleNumber"
+                        }
+                    },
+                    "horizontalAccuracyMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HorizontalAccuracyMeasure"
+                        }
+                    },
+                    "horizontalAccuracyUnitofMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HorizontalAccuracyUnitofMeasure"
+                        }
+                    },
+                    "horizontalCollectionMethodCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HorizontalCollectionMethodCode"
+                        }
+                    },
+                    "horizontalReferenceDatumCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "HorizontalReferenceDatumCode"
+                        }
+                    },
+                    "geographicReferencePointCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "GeographicReferencePointCode"
+                        }
+                    },
+                    "dataCollectionDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "DataCollectionDate"
+                        }
+                    },
+                    "geographicComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "GeographicComment"
+                        }
+                    },
+                    "verticalMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "VerticalMeasure"
+                        }
+                    },
+                    "verticalUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "VerticalUnitofMeasureCode"
+                        }
+                    },
+                    "verticalCollectionMethodCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "VerticalCollectionMethodCode"
+                        }
+                    },
+                    "verticalReferenceDatumCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "VerticalReferenceDatumCode"
+                        }
+                    },
+                    "verificationMethodCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "VerificationMethodCode"
+                        }
+                    },
+                    "coordinateDataSourceCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CoordinateDataSourceCode"
+                        }
+                    },
+                    "geometricTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "GeometricTypeCode"
+                        }
+                    },
+                    "areaWithinPerimeter": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AreaWithinPerimeter"
+                        }
+                    },
+                    "areaWithinPerimeterUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AreaWithinPerimeterUnitofMeasureCode"
+                        }
+                    },
+                    "geographicCoordinateIsReadOnly": {
+                        "type": "string",
+                        "xml": {
+                            "name": "GeographicCoordinateIsReadOnly"
+                        }
+                    }
+                }
+            },
+            "Identification": {
+                "required": [
+                    "identifier"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "programSystemCode": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "identifierIsReadOnly": {
+                        "type": "string"
+                    }
+                }
+            },
+            "IdentificationDataType": {
+                "required": [
+                    "identifier",
+                    "programSystemCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string",
+                        "xml": {
+                            "name": "Identifier"
+                        }
+                    },
+                    "programSystemCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProgramSystemCode"
+                        }
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EffectiveDate"
+                        }
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EndDate"
+                        }
+                    },
+                    "identifierIsReadOnly": {
+                        "type": "string",
+                        "xml": {
+                            "name": "IdentifierIsReadOnly"
+                        }
+                    }
+                }
+            },
+            "LocationDataType": {
+                "type": "object",
+                "properties": {
+                    "stateAndCountyFIPSCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "StateAndCountyFIPSCode"
+                        }
+                    },
+                    "tribalCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "TribalCode"
+                        }
+                    },
+                    "stateAndCountryFIPSCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "StateAndCountryFIPSCode"
+                        }
+                    },
+                    "censusBlockIdentifier": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CensusBlockIdentifier"
+                        }
+                    },
+                    "censusTractIdentifier": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CensusTractIdentifier"
+                        }
+                    },
+                    "shapeIdentifier": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ShapeIdentifier"
+                        }
+                    },
+                    "locationComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "LocationComment"
+                        }
+                    },
+                    "locationEmissionsProcess": {
+                        "type": "array",
+                        "xml": {
+                            "name": "LocationEmissionsProcess"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/ProcessDataType"
+                        }
+                    }
+                }
+            },
+            "LookupValue": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "shortName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Measure": {
+                "required": [
+                    "unit",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number"
+                    },
+                    "unit": {
+                        "$ref": "#/components/schemas/MeasureUnit"
+                    }
+                },
+                "description": "Value must be in numeric format '{5}.{3]"
+            },
+            "MeasureUnit": {
+                "required": [
+                    "code"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 20,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "OperatingDetails": {
+                "required": [
+                    "actualHoursPerPeriod",
+                    "averageDaysPerWeek",
+                    "averageHoursPerDay",
+                    "averageWeeksPerPeriod",
+                    "percentFallActivity",
+                    "percentSpringActivity",
+                    "percentSummerActivity",
+                    "percentWinterActivity"
+                ],
+                "type": "object",
+                "properties": {
+                    "actualHoursPerPeriod": {
+                        "maximum": 8784,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "averageHoursPerDay": {
+                        "maximum": 24.0,
+                        "type": "number"
+                    },
+                    "averageDaysPerWeek": {
+                        "maximum": 7.0,
+                        "type": "number"
+                    },
+                    "averageWeeksPerPeriod": {
+                        "maximum": 52,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "percentWinterActivity": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "percentSpringActivity": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "percentSummerActivity": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "percentFallActivity": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "maxHoursPerDay": {
+                        "type": "number"
+                    },
+                    "maxHoursPerWeek": {
+                        "type": "number"
+                    },
+                    "maxHoursPerPeriod": {
+                        "type": "number"
+                    }
+                }
+            },
+            "OperatingDetailsDataType": {
+                "type": "object",
+                "properties": {
+                    "actualHoursPerPeriod": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ActualHoursPerPeriod"
+                        }
+                    },
+                    "averageDaysPerWeek": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AverageDaysPerWeek"
+                        }
+                    },
+                    "averageHoursPerDay": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AverageHoursPerDay"
+                        }
+                    },
+                    "averageWeeksPerPeriod": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AverageWeeksPerPeriod"
+                        }
+                    },
+                    "percentWinterActivity": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentWinterActivity"
+                        }
+                    },
+                    "percentSpringActivity": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentSpringActivity"
+                        }
+                    },
+                    "percentSummerActivity": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentSummerActivity"
+                        }
+                    },
+                    "percentFallActivity": {
+                        "type": "string",
+                        "xml": {
+                            "name": "PercentFallActivity"
+                        }
+                    }
+                }
+            },
+            "Pollutant": {
+                "required": [
+                    "pollutantCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "pollutantCode": {
+                        "maxLength": 12,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "pollutantName": {
+                        "type": "string"
+                    },
+                    "pollutantCasId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProcessDataType": {
+                "type": "object",
+                "properties": {
+                    "sourceClassificationCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SourceClassificationCode"
+                        }
+                    },
+                    "emissionsTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionsTypeCode"
+                        }
+                    },
+                    "aircraftEngineTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AircraftEngineTypeCode"
+                        }
+                    },
+                    "processDescription": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProcessDescription"
+                        }
+                    },
+                    "processStatusCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProcessStatusCode"
+                        }
+                    },
+                    "processStatusCodeYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "ProcessStatusCodeYear"
+                        }
+                    },
+                    "processComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProcessComment"
+                        }
+                    },
+                    "processIsReadOnly": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ProcessIsReadOnly"
+                        }
+                    },
+                    "processIdentification": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ProcessIdentification"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/IdentificationDataType"
+                        }
+                    },
+                    "processRegulation": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ProcessRegulation"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/RegulationDataType"
+                        }
+                    },
+                    "processControlApproach": {
+                        "$ref": "#/components/schemas/ControlApproachDataType"
+                    },
+                    "deleteReportingPeriod": {
+                        "type": "array",
+                        "xml": {
+                            "name": "DeleteReportingPeriod"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/DeleteReportingPeriodDataType"
+                        }
+                    },
+                    "reportingPeriod": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ReportingPeriod"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/ReportingPeriodDataType"
+                        }
+                    },
+                    "releasePointApportionment": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ReleasePointApportionment"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/ReleasePointApportionmentDataType"
+                        }
+                    }
+                }
+            },
+            "RegulationDataType": {
+                "required": [
+                    "regulatoryCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "RegulatoryCode"
+                        }
+                    },
+                    "agencyCodeText": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AgencyCodeText"
+                        }
+                    },
+                    "regulatoryStartYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "RegulatoryStartYear"
+                        }
+                    },
+                    "regulatoryEndYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "RegulatoryEndYear"
+                        }
+                    },
+                    "regulationComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "RegulationComment"
+                        }
+                    },
+                    "regulationIsReadOnly": {
+                        "type": "string",
+                        "xml": {
+                            "name": "RegulationIsReadOnly"
+                        }
+                    }
+                }
+            },
+            "ReleasePoint": {
+                "required": [
+                    "releasePointTypeCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "identification": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "description": {
+                        "maxLength": 200,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "statusCodeYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "exitGasFlowRate": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "exitGasTemperature": {
+                        "maximum": 4000,
+                        "minimum": -30,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "exitGasVelocity": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "fenceLineDistance": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "fugitiveAngle": {
+                        "maximum": 89,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "fugitiveHeight": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "stackDiameter": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "stackHeight": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "stackWidth": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "stackLength": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "releasePointTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "releasePointGeographicCoordinates": {
+                        "$ref": "#/components/schemas/GeographicCoordinates"
+                    },
+                    "releasePointIsReadOnly": {
+                        "type": "string"
+                    },
+                    "stackHeightIsReadOnly": {
+                        "type": "string"
+                    },
+                    "stackDiameterIsReadOnly": {
+                        "type": "string"
+                    },
+                    "widthIsReadOnly": {
+                        "type": "string"
+                    },
+                    "lengthIsReadOnly": {
+                        "type": "string"
+                    },
+                    "exitGasVelocityIsReadOnly": {
+                        "type": "string"
+                    },
+                    "exitGasFlowRateIsReadOnly": {
+                        "type": "string"
+                    },
+                    "exitGasTemperatureIsReadOnly": {
+                        "type": "string"
+                    },
+                    "permitStatusBeginYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "permitStatusEndYear": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "exitGasTemperatureAmbient": {
+                        "type": "string"
+                    },
+                    "exhaustMoisturePercent": {
+                        "type": "number"
+                    },
+                    "bypassFlag": {
+                        "type": "string"
+                    },
+                    "mainIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "ReleasePointApportionmentDataType": {
+                "required": [
+                    "averagePercentEmissions",
+                    "releasePointApportionmentIdentification"
+                ],
+                "type": "object",
+                "properties": {
+                    "averagePercentEmissions": {
+                        "type": "string",
+                        "xml": {
+                            "name": "AveragePercentEmissions"
+                        }
+                    },
+                    "releasePointApportionmentIsUncontrolled": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ReleasePointApportionmentIsUncontrolled"
+                        }
+                    },
+                    "releasePointApportionmentComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ReleasePointApportionmentComment"
+                        }
+                    },
+                    "releasePointApportionmentIdentification": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ReleasePointApportionmentIdentification"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/IdentificationDataType"
+                        }
+                    },
+                    "releasePointApportionmentPathIdentification": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ReleasePointApportionmentPathIdentification"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/IdentificationDataType"
+                        }
+                    }
+                }
+            },
+            "ReleasePointAppt": {
+                "required": [
+                    "averagePercentEmissions"
+                ],
+                "type": "object",
+                "properties": {
+                    "releasePointIdentification": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "pathIdentification": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Identification"
+                        }
+                    },
+                    "averagePercentEmissions": {
+                        "maximum": 100.0,
+                        "type": "number"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "releasePointApportionmentIsUncontrolled": {
+                        "type": "string"
+                    },
+                    "mainPathIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    },
+                    "mainReleasePointIdentification": {
+                        "$ref": "#/components/schemas/Identification"
+                    }
+                }
+            },
+            "ReportingPeriod": {
+                "required": [
+                    "calculationMaterialCode",
+                    "calculationParameter",
+                    "calculationParameterTypeCode",
+                    "emissionsOperatingTypeCode",
+                    "reportingPeriodTypeCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "fuelUse": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "fuelUseMaterialCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "heatContent": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "reportingPeriodTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "emissionsOperatingTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "calculationParameterTypeCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "calculationParameter": {
+                        "$ref": "#/components/schemas/Measure"
+                    },
+                    "calculationMaterialCode": {
+                        "$ref": "#/components/schemas/LookupValue"
+                    },
+                    "comment": {
+                        "maxLength": 400,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "operatingDetails": {
+                        "maxItems": 2147483647,
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OperatingDetails"
+                        }
+                    },
+                    "emissions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Emission"
+                        }
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "calculationDataYear": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "calculationDataSource": {
+                        "type": "string"
+                    },
+                    "supplementalCalculationParameter": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SupplementalCalculationParameterDataType"
+                        }
+                    }
+                }
+            },
+            "ReportingPeriodDataType": {
+                "required": [
+                    "reportingPeriodEmissions",
+                    "reportingPeriodTypeCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "reportingPeriodTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ReportingPeriodTypeCode"
+                        }
+                    },
+                    "emissionOperatingTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "EmissionOperatingTypeCode"
+                        }
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "StartDate"
+                        }
+                    },
+                    "endDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "EndDate"
+                        }
+                    },
+                    "calculationParameterTypeCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CalculationParameterTypeCode"
+                        }
+                    },
+                    "calculationParameterValue": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CalculationParameterValue"
+                        }
+                    },
+                    "calculationParameterUnitofMeasure": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CalculationParameterUnitofMeasure"
+                        }
+                    },
+                    "calculationMaterialCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CalculationMaterialCode"
+                        }
+                    },
+                    "calculationDataYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "CalculationDataYear"
+                        }
+                    },
+                    "calculationDataSource": {
+                        "type": "string",
+                        "xml": {
+                            "name": "CalculationDataSource"
+                        }
+                    },
+                    "reportingPeriodComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "ReportingPeriodComment"
+                        }
+                    },
+                    "operatingDetails": {
+                        "$ref": "#/components/schemas/OperatingDetailsDataType"
+                    },
+                    "supplementalCalculationParameter": {
+                        "type": "array",
+                        "xml": {
+                            "name": "SupplementalCalculationParameter"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/SupplementalCalculationParameterDataType"
+                        }
+                    },
+                    "reportingPeriodEmissions": {
+                        "type": "array",
+                        "xml": {
+                            "name": "ReportingPeriodEmissions"
+                        },
+                        "items": {
+                            "$ref": "#/components/schemas/EmissionsDataType"
+                        }
+                    }
+                }
+            },
+            "State": {
+                "required": [
+                    "code"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "maxLength": 5,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "fipsCode": {
+                        "maxLength": 2,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SupplementalCalculationParameterDataType": {
+                "type": "object",
+                "properties": {
+                    "supplementalCalculationParameterType": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterType"
+                        }
+                    },
+                    "supplementalCalculationParameterValue": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterValue"
+                        }
+                    },
+                    "supplementalCalculationParameterNumeratorUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterNumeratorUnitofMeasureCode"
+                        }
+                    },
+                    "supplementalCalculationParameterDenominatorUnitofMeasureCode": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterDenominatorUnitofMeasureCode"
+                        }
+                    },
+                    "supplementalCalculationParameterDataYear": {
+                        "type": "string",
+                        "format": "date-time",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterDataYear"
+                        }
+                    },
+                    "supplementalCalculationParameterDataSource": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterDataSource"
+                        }
+                    },
+                    "supplementalCalculationParameterComment": {
+                        "type": "string",
+                        "xml": {
+                            "name": "SupplementalCalculationParameterComment"
+                        }
+                    }
+                }
+            },
+            "ReportInfo": {
+                "type": "object",
+                "properties": {
+                    "reportId": {
+                        "type": "integer",
+                        "description": "The internal CAERS Report ID.",
+                        "format": "int64"
+                    },
+                    "agencyFacilityIdentifier": {
+                        "type": "string",
+                        "description": "The Agency Facility Identifier."
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "The Report's status in CAERS.",
+                        "enum": [
+                            "NEW",
+                            "APPROVED",
+                            "IN_PROGRESS",
+                            "RETURNED",
+                            "SUBMITTED",
+                            "ADVANCED_QA",
+                            "VALIDATED",
+                            "NOT_STARTED"
+                        ]
+                    },
+                    "modifiedDate": {
+                        "type": "string",
+                        "description": "The date of the last change made to the Report.",
+                        "format": "date-time"
+                    },
+                    "certifiedDate": {
+                        "type": "string",
+                        "description": "The date this Report was most recently certified.",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "myOauth2Security": {
+                "type": "oauth2",
+                "flows": {
+                    "clientCredentials": {
+                        "tokenUrl": "https://cdxapi.epa.gov/oauth/token",
+                        "scopes": {
+                            "slt:export": "modify pets in your account"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
