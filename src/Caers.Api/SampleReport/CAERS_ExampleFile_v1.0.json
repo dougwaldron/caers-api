@@ -1,0 +1,2337 @@
+{
+  "agencyFacilityIdentifier": "12345678",
+  "programSystemCode": "GADNR",
+  "emissionsYear": 2022,
+  "status": "IN_PROGRESS",
+  "validationStatus": "UNVALIDATED",
+  "eisLastSubmissionStatus": "NotStarted",
+  "version": null,
+  "facilitySite": [
+    {
+      "eisProgramId": "123456",
+      "comment": null,
+      "facilityCategoryCode": "HAP",
+      "name": "A Test Company",
+      "description": null,
+      "facilitySourceTypeCode": null,
+      "statusCode": {
+        "code": "OP",
+        "description": "Operating",
+        "shortName": null
+      },
+      "statusCodeYear": 2021,
+      "facilityIdentification": [
+        {
+          "identifier": "12345678",
+          "programSystemCode": "GADNR",
+          "effectiveDate": null,
+          "endDate": null,
+          "identifierIsReadOnly": null,
+          "tribalCode": null,
+          "stateAndCountyFIPSCode": "13121",
+          "stateAndCountryFIPSCode": null
+        }
+      ],
+      "alternativeFacilityIdentification": [],
+      "alternativeFacilityName": [],
+      "facilitySiteAddress": [
+        {
+          "addressText": "123 Any Street",
+          "supplementalAddressText": null,
+          "localityName": "Atlanta",
+          "county": {
+            "code": "13121",
+            "name": "Fulton"
+          },
+          "state": {
+            "code": "GA",
+            "fipsCode": "13",
+            "name": "Georgia"
+          },
+          "country": {
+            "code": null,
+            "name": null
+          },
+          "postalCode": "30354",
+          "addressComment": null,
+          "locationAddressIsReadOnly": null,
+          "localityIsReadOnly": null,
+          "postalCodeIsReadOnly": null
+        }
+      ],
+      "mailingAddress": {
+        "addressText": "123 Any Street",
+        "supplementalAddressText": null,
+        "localityName": "Atlanta",
+        "county": null,
+        "state": {
+          "code": "GA",
+          "fipsCode": "13",
+          "name": "Georgia"
+        },
+        "country": null,
+        "postalCode": "30354",
+        "addressComment": null,
+        "locationAddressIsReadOnly": null,
+        "localityIsReadOnly": null,
+        "postalCodeIsReadOnly": null
+      },
+      "facilitySiteGeographicCoordinates": {
+        "latitudeMeasure": "33.653330",
+        "longitudeMeasure": "-84.401100",
+        "midPoint2LatitudeMeasure": null,
+        "midPoint2LongitudeMeasure": null,
+        "sourceMapScaleNumber": null,
+        "horizontalAccuracyMeasure": null,
+        "horizontalAccuracyUnitofMeasure": null,
+        "horizontalCollectionMethodCode": null,
+        "horizontalReferenceDatumCode": null,
+        "geographicReferencePointCode": null,
+        "dataCollectionDate": null,
+        "geographicComment": null,
+        "verticalMeasure": null,
+        "verticalUnitofMeasureCode": null,
+        "verticalCollectionMethodCode": null,
+        "verticalReferenceDatumCode": null,
+        "verificationMethodCode": null,
+        "coordinateDataSourceCode": null,
+        "geometricTypeCode": null,
+        "areaWithinPerimeter": null,
+        "areaWithinPerimeterUnitofMeasureCode": null,
+        "geographicCoordinateIsReadOnly": null
+      },
+      "emissionsUnits": [
+        {
+          "identification": [
+            {
+              "identifier": "Boiler 1",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Start-up boiler Unit 1",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "designCapacity": {
+            "value": 280,
+            "unit": {
+              "code": "HP",
+              "description": "HORSEPOWER"
+            }
+          },
+          "unitTypeCode": {
+            "code": "100",
+            "description": "Boiler",
+            "shortName": null
+          },
+          "emissionsProcesses": [
+            {
+              "identification": [
+                {
+                  "identifier": "1",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "description": "Burning #2 fuel oil",
+              "statusCode": {
+                "code": "OP",
+                "description": "Operating",
+                "shortName": null
+              },
+              "statusCodeYear": 2017,
+              "comment": "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test",
+              "sourceClassificationCode": "10300901",
+              "sccShortName": null,
+              "sccDescription": "External Combustion > Commercial/Institutional: Boilers > Wood/Bark Waste > Bark-fired Boiler",
+              "aircraftEngineTypeCode": null,
+              "reportingPeriods": [
+                {
+                  "fuelUse": {
+                    "value": 10,
+                    "unit": {
+                      "code": "E6BTU",
+                      "description": "MILLION BTUS"
+                    }
+                  },
+                  "fuelUseMaterialCode": {
+                    "code": "15",
+                    "description": "Wood",
+                    "shortName": null
+                  },
+                  "heatContent": {
+                    "value": 15,
+                    "unit": {
+                      "code": "BTU",
+                      "description": "BRITISH THERMAL UNITS"
+                    }
+                  },
+                  "reportingPeriodTypeCode": {
+                    "code": "A",
+                    "description": "The total emissions for a full year.",
+                    "shortName": "Annual"
+                  },
+                  "emissionsOperatingTypeCode": {
+                    "code": "R",
+                    "description": "The normal or typical emissions for a reporting period.",
+                    "shortName": "Routine"
+                  },
+                  "calculationParameterTypeCode": {
+                    "code": "I",
+                    "description": "Input",
+                    "shortName": null
+                  },
+                  "calculationParameter": {
+                    "value": 10,
+                    "unit": {
+                      "code": "E6BTU",
+                      "description": "MILLION BTUS"
+                    }
+                  },
+                  "calculationMaterialCode": {
+                    "code": "15",
+                    "description": "Wood",
+                    "shortName": null
+                  },
+                  "comment": null,
+                  "operatingDetails": [
+                    {
+                      "actualHoursPerPeriod": 6762,
+                      "averageHoursPerDay": 23.0,
+                      "averageDaysPerWeek": 6.0,
+                      "averageWeeksPerPeriod": 49,
+                      "percentWinterActivity": 42.2,
+                      "percentSpringActivity": 6.7,
+                      "percentSummerActivity": 28.8,
+                      "percentFallActivity": 22.3,
+                      "maxHoursPerDay": null,
+                      "maxHoursPerWeek": null,
+                      "maxHoursPerPeriod": null
+                    }
+                  ],
+                  "emissions": [
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.000085,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "VOC",
+                        "pollutantName": "Volatile Organic Compounds",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 0.17,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.017,
+                      "emissionFactorText": "EPA.  September, 2003.  Section 1.6, Wood Residue Combustion In Boilers.  In: Compilation of Air ...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.000125,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "SO2",
+                        "pollutantName": "Sulfur Dioxide",
+                        "pollutantCasId": "7446-09-5"
+                      },
+                      "totalEmissions": {
+                        "value": 0.000125,
+                        "unit": {
+                          "code": "TON",
+                          "description": "TONS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.025,
+                      "emissionFactorText": "EPA.  September, 2003.  Section 1.6, Wood Residue Combustion In Boilers.  In: Compilation of Air ...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": "test",
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.0011,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "NOX",
+                        "pollutantName": "Nitrogen Oxides",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 2.2,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.22,
+                      "emissionFactorText": "EPA.  September, 2003.  Section 1.6, Wood Residue Combustion In Boilers.  In: Compilation of Air ...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.003,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "CO",
+                        "pollutantName": "Carbon Monoxide",
+                        "pollutantCasId": "630-08-0"
+                      },
+                      "totalEmissions": {
+                        "value": 6,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.6,
+                      "emissionFactorText": "EPA.  September, 2003.  Section 1.6, Wood Residue Combustion In Boilers.  In: Compilation of Air ...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    }
+                  ],
+                  "startDate": null,
+                  "endDate": null,
+                  "calculationDataYear": null,
+                  "calculationDataSource": null,
+                  "supplementalCalculationParameter": null
+                }
+              ],
+              "releasePointApportionment": [
+                {
+                  "releasePointIdentification": [
+                    {
+                      "identifier": "Stack 2",
+                      "programSystemCode": "GADNR",
+                      "effectiveDate": null,
+                      "endDate": null,
+                      "identifierIsReadOnly": null
+                    }
+                  ],
+                  "pathIdentification": [],
+                  "averagePercentEmissions": 100.00,
+                  "comment": null,
+                  "releasePointApportionmentIsUncontrolled": "true"
+                }
+              ],
+              "emissionsTypeCode": null,
+              "processIsReadOnly": null,
+              "processRegulation": null,
+              "processControlApproach": null,
+              "deleteReportingPeriod": null,
+              "permitStatusBeginYear": null,
+              "permitStatusEndYear": null,
+              "maximumTheoreticalEmissions": null,
+              "potentialToEmit": null,
+              "isBillable": null,
+              "insignificantSource": null
+            }
+          ],
+          "unitOperationDate": null,
+          "permitStatusCode": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "unitIsReadOnly": null,
+          "designCapacityIsReadOnly": null,
+          "maximumTheoreticalEmissions": null,
+          "potentialToEmit": null,
+          "unitNaics": null,
+          "permitByRule": null,
+          "engineUseType": null,
+          "engineUseTypeDescription": null,
+          "federalEnforcableLimitText": null,
+          "permitLimitText": null,
+          "unitModificationDate": null,
+          "unitModificationDescription": null,
+          "reportingRequirement": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Boiler 2",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Start-up boiler Unit 2",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "designCapacity": {
+            "value": 280,
+            "unit": {
+              "code": "KW",
+              "description": "KILOWATTS"
+            }
+          },
+          "unitTypeCode": {
+            "code": "100",
+            "description": "Boiler",
+            "shortName": null
+          },
+          "emissionsProcesses": [
+            {
+              "identification": [
+                {
+                  "identifier": "1",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "description": "Burning Natural Gas",
+              "statusCode": {
+                "code": "OP",
+                "description": "Operating",
+                "shortName": null
+              },
+              "statusCodeYear": 2017,
+              "comment": null,
+              "sourceClassificationCode": "20200252",
+              "sccShortName": null,
+              "sccDescription": "Internal Combustion Engines > Industrial > Natural Gas > 2-cycle Lean Burn",
+              "aircraftEngineTypeCode": null,
+              "reportingPeriods": [
+                {
+                  "fuelUse": {
+                    "value": 999999999999999,
+                    "unit": {
+                      "code": "E6FT3S",
+                      "description": "MILLION STANDARD CUBIC FEET"
+                    }
+                  },
+                  "fuelUseMaterialCode": {
+                    "code": "209",
+                    "description": "Natural Gas",
+                    "shortName": null
+                  },
+                  "heatContent": {
+                    "value": 10,
+                    "unit": {
+                      "code": "E6BTU",
+                      "description": "MILLION BTUS"
+                    }
+                  },
+                  "reportingPeriodTypeCode": {
+                    "code": "A",
+                    "description": "The total emissions for a full year.",
+                    "shortName": "Annual"
+                  },
+                  "emissionsOperatingTypeCode": {
+                    "code": "R",
+                    "description": "The normal or typical emissions for a reporting period.",
+                    "shortName": "Routine"
+                  },
+                  "calculationParameterTypeCode": {
+                    "code": "I",
+                    "description": "Input",
+                    "shortName": null
+                  },
+                  "calculationParameter": {
+                    "value": 144.84,
+                    "unit": {
+                      "code": "E6BTU",
+                      "description": "MILLION BTUS"
+                    }
+                  },
+                  "calculationMaterialCode": {
+                    "code": "765",
+                    "description": "1,4-Dioxane",
+                    "shortName": null
+                  },
+                  "comment": null,
+                  "operatingDetails": [
+                    {
+                      "actualHoursPerPeriod": 6916,
+                      "averageHoursPerDay": 19.0,
+                      "averageDaysPerWeek": 7.0,
+                      "averageWeeksPerPeriod": 52,
+                      "percentWinterActivity": 19.9,
+                      "percentSpringActivity": 18.1,
+                      "percentSummerActivity": 37.7,
+                      "percentFallActivity": 24.3,
+                      "maxHoursPerDay": null,
+                      "maxHoursPerWeek": null,
+                      "maxHoursPerPeriod": null
+                    }
+                  ],
+                  "emissions": [
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.00869040,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "VOC",
+                        "pollutantName": "Volatile Organic Compounds",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 17.3808,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.12,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.00004258295,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "SO2",
+                        "pollutantName": "Sulfur Dioxide",
+                        "pollutantCasId": "7446-09-5"
+                      },
+                      "totalEmissions": {
+                        "value": 0.0851659,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.000588,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.002780930,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "PM25-FIL",
+                        "pollutantName": "PM2.5 Filterable",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 5.56186,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.0384,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.002780930,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "PM10-FIL",
+                        "pollutantName": "PM10 Filterable",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 5.56186,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.0384,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.2295715,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "NOX",
+                        "pollutantName": "Nitrogen Oxides",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 459.143,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 3.17,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.02795410,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "CO",
+                        "pollutantName": "Carbon Monoxide",
+                        "pollutantCasId": "630-08-0"
+                      },
+                      "totalEmissions": {
+                        "value": 55.9082,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.386,
+                      "emissionFactorText": "EPA.  2000.  Section 3.2, Natural Gas-fired Reciprocating Engines.  In: Compilation of Air Pollut...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "E6BTU",
+                        "description": "MILLION BTUS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    }
+                  ],
+                  "startDate": null,
+                  "endDate": null,
+                  "calculationDataYear": null,
+                  "calculationDataSource": null,
+                  "supplementalCalculationParameter": null
+                }
+              ],
+              "releasePointApportionment": [
+                {
+                  "releasePointIdentification": [
+                    {
+                      "identifier": "Coal Handler",
+                      "programSystemCode": "GADNR",
+                      "effectiveDate": null,
+                      "endDate": null,
+                      "identifierIsReadOnly": null
+                    }
+                  ],
+                  "pathIdentification": [],
+                  "averagePercentEmissions": 100.00,
+                  "comment": null,
+                  "releasePointApportionmentIsUncontrolled": "true"
+                }
+              ],
+              "emissionsTypeCode": null,
+              "processIsReadOnly": null,
+              "processRegulation": null,
+              "processControlApproach": null,
+              "deleteReportingPeriod": null,
+              "permitStatusBeginYear": null,
+              "permitStatusEndYear": null,
+              "maximumTheoreticalEmissions": null,
+              "potentialToEmit": null,
+              "isBillable": null,
+              "insignificantSource": null
+            }
+          ],
+          "unitOperationDate": null,
+          "permitStatusCode": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "unitIsReadOnly": null,
+          "designCapacityIsReadOnly": null,
+          "maximumTheoreticalEmissions": null,
+          "potentialToEmit": null,
+          "unitNaics": null,
+          "permitByRule": null,
+          "engineUseType": null,
+          "engineUseTypeDescription": null,
+          "federalEnforcableLimitText": null,
+          "permitLimitText": null,
+          "unitModificationDate": null,
+          "unitModificationDescription": null,
+          "reportingRequirement": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Coal Furnace",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Main Facility Furnace",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "designCapacity": {
+            "value": 8240,
+            "unit": {
+              "code": "KW",
+              "description": "KILOWATTS"
+            }
+          },
+          "unitTypeCode": {
+            "code": "200",
+            "description": "Furnace",
+            "shortName": null
+          },
+          "emissionsProcesses": [
+            {
+              "identification": [
+                {
+                  "identifier": "1",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "description": "Coal Combustion",
+              "statusCode": {
+                "code": "OP",
+                "description": "Operating",
+                "shortName": null
+              },
+              "statusCodeYear": 2017,
+              "comment": null,
+              "sourceClassificationCode": "30203201",
+              "sccShortName": null,
+              "sccDescription": "Industrial Processes > Food and Agriculture > Bakeries > Bread Baking: Sponge-Dough Process",
+              "aircraftEngineTypeCode": null,
+              "reportingPeriods": [
+                {
+                  "fuelUse": {
+                    "value": 10,
+                    "unit": {
+                      "code": "E6BTU",
+                      "description": "MILLION BTUS"
+                    }
+                  },
+                  "fuelUseMaterialCode": {
+                    "code": "640",
+                    "description": "Anthracite",
+                    "shortName": null
+                  },
+                  "heatContent": {
+                    "value": 25,
+                    "unit": null
+                  },
+                  "reportingPeriodTypeCode": {
+                    "code": "A",
+                    "description": "The total emissions for a full year.",
+                    "shortName": "Annual"
+                  },
+                  "emissionsOperatingTypeCode": {
+                    "code": "R",
+                    "description": "The normal or typical emissions for a reporting period.",
+                    "shortName": "Routine"
+                  },
+                  "calculationParameterTypeCode": {
+                    "code": "I",
+                    "description": "Input",
+                    "shortName": null
+                  },
+                  "calculationParameter": {
+                    "value": 100,
+                    "unit": {
+                      "code": "TON",
+                      "description": "TONS"
+                    }
+                  },
+                  "calculationMaterialCode": {
+                    "code": "640",
+                    "description": "Anthracite",
+                    "shortName": null
+                  },
+                  "comment": null,
+                  "operatingDetails": [
+                    {
+                      "actualHoursPerPeriod": 3840,
+                      "averageHoursPerDay": 20.0,
+                      "averageDaysPerWeek": 4.0,
+                      "averageWeeksPerPeriod": 48,
+                      "percentWinterActivity": 18.2,
+                      "percentSpringActivity": 5.5,
+                      "percentSummerActivity": 38.0,
+                      "percentFallActivity": 38.3,
+                      "maxHoursPerDay": null,
+                      "maxHoursPerWeek": null,
+                      "maxHoursPerPeriod": null
+                    }
+                  ],
+                  "emissions": [
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 1.1500,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "PM10-FIL",
+                        "pollutantName": "PM10 Filterable",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 2300,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 23.0,
+                      "emissionFactorText": "EPA.  1995.  Section 1.2, Anthracite Coal Combustion.  In: Compilation of Air Pollutant Emission ...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "TON",
+                        "description": "TONS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.03,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "CO",
+                        "pollutantName": "Carbon Monoxide",
+                        "pollutantCasId": "630-08-0"
+                      },
+                      "totalEmissions": {
+                        "value": 60,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 0.6,
+                      "emissionFactorText": "This factor was present in AIRS Facility Subsystem Source Classification Codes and Emission Facto...",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "TON",
+                        "description": "TONS"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    },
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": false,
+                      "calculatedEmissionsTons": 0.0260,
+                      "calculationComment": null,
+                      "pollutantCode": {
+                        "pollutantCode": "NH3",
+                        "pollutantName": "Ammonia",
+                        "pollutantCasId": "7664-41-7"
+                      },
+                      "totalEmissions": {
+                        "value": 52,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "2",
+                        "description": "Engineering Judgment",
+                        "shortName": null
+                      },
+                      "emissionFactor": null,
+                      "emissionFactorText": null,
+                      "emissionFactorNumeratorUnitofMeasureCode": null,
+                      "emissionFactorDenominatorUnitofMeasureCode": null,
+                      "comment": "test",
+                      "stackTestDate": null
+                    }
+                  ],
+                  "startDate": null,
+                  "endDate": null,
+                  "calculationDataYear": null,
+                  "calculationDataSource": null,
+                  "supplementalCalculationParameter": null
+                }
+              ],
+              "releasePointApportionment": [
+                {
+                  "releasePointIdentification": [
+                    {
+                      "identifier": "Coal Handler",
+                      "programSystemCode": "GADNR",
+                      "effectiveDate": null,
+                      "endDate": null,
+                      "identifierIsReadOnly": null
+                    }
+                  ],
+                  "pathIdentification": [],
+                  "averagePercentEmissions": 50.00,
+                  "comment": null,
+                  "releasePointApportionmentIsUncontrolled": "true"
+                },
+                {
+                  "releasePointIdentification": [
+                    {
+                      "identifier": "Scrubber 1",
+                      "programSystemCode": "GADNR",
+                      "effectiveDate": null,
+                      "endDate": null,
+                      "identifierIsReadOnly": null
+                    }
+                  ],
+                  "pathIdentification": [],
+                  "averagePercentEmissions": 50.00,
+                  "comment": null,
+                  "releasePointApportionmentIsUncontrolled": "true"
+                }
+              ],
+              "emissionsTypeCode": null,
+              "processIsReadOnly": null,
+              "processRegulation": null,
+              "processControlApproach": null,
+              "deleteReportingPeriod": null,
+              "permitStatusBeginYear": null,
+              "permitStatusEndYear": null,
+              "maximumTheoreticalEmissions": null,
+              "potentialToEmit": null,
+              "isBillable": null,
+              "insignificantSource": null
+            }
+          ],
+          "unitOperationDate": null,
+          "permitStatusCode": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "unitIsReadOnly": null,
+          "designCapacityIsReadOnly": null,
+          "maximumTheoreticalEmissions": null,
+          "potentialToEmit": null,
+          "unitNaics": null,
+          "permitByRule": null,
+          "engineUseType": null,
+          "engineUseTypeDescription": null,
+          "federalEnforcableLimitText": null,
+          "permitLimitText": null,
+          "unitModificationDate": null,
+          "unitModificationDescription": null,
+          "reportingRequirement": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Spray Booth A",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Spray Booth for Paint Application",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2021,
+          "comment": null,
+          "designCapacity": {
+            "value": 8240,
+            "unit": {
+              "code": "HP",
+              "description": "HORSEPOWER"
+            }
+          },
+          "unitTypeCode": {
+            "code": "450",
+            "description": "Spray Booth or Coating Line",
+            "shortName": null
+          },
+          "emissionsProcesses": [
+            {
+              "identification": [
+                {
+                  "identifier": "1",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "description": "Paint Coating",
+              "statusCode": {
+                "code": "OP",
+                "description": "Operating",
+                "shortName": null
+              },
+              "statusCodeYear": 2021,
+              "comment": null,
+              "sourceClassificationCode": "30187023",
+              "sccShortName": null,
+              "sccDescription": "Industrial Processes > Chemical Manufacturing > Inorganic Chemical Storage: Fixed Roof Tanks > Anhydrous Hydrazine: Breathing Loss",
+              "aircraftEngineTypeCode": null,
+              "reportingPeriods": [
+                {
+                  "fuelUse": {
+                    "value": 99999999999999,
+                    "unit": null
+                  },
+                  "fuelUseMaterialCode": {
+                    "code": "561",
+                    "description": "Sludge",
+                    "shortName": null
+                  },
+                  "heatContent": {
+                    "value": null,
+                    "unit": {
+                      "code": "BTU",
+                      "description": "BRITISH THERMAL UNITS"
+                    }
+                  },
+                  "reportingPeriodTypeCode": {
+                    "code": "A",
+                    "description": "The total emissions for a full year.",
+                    "shortName": "Annual"
+                  },
+                  "emissionsOperatingTypeCode": {
+                    "code": "R",
+                    "description": "The normal or typical emissions for a reporting period.",
+                    "shortName": "Routine"
+                  },
+                  "calculationParameterTypeCode": {
+                    "code": "I",
+                    "description": "Input",
+                    "shortName": null
+                  },
+                  "calculationParameter": {
+                    "value": 200,
+                    "unit": {
+                      "code": "EACH",
+                      "description": "EACH"
+                    }
+                  },
+                  "calculationMaterialCode": {
+                    "code": "368",
+                    "description": "Vehicle",
+                    "shortName": null
+                  },
+                  "comment": null,
+                  "operatingDetails": [
+                    {
+                      "actualHoursPerPeriod": 1980,
+                      "averageHoursPerDay": 7.2,
+                      "averageDaysPerWeek": 5.5,
+                      "averageWeeksPerPeriod": 50,
+                      "percentWinterActivity": 4.2,
+                      "percentSpringActivity": 10.8,
+                      "percentSummerActivity": 51.5,
+                      "percentFallActivity": 33.5,
+                      "maxHoursPerDay": null,
+                      "maxHoursPerWeek": null,
+                      "maxHoursPerPeriod": null
+                    }
+                  ],
+                  "emissions": [
+                    {
+                      "emissionFactorFormula": null,
+                      "emissionFormulaVariables": [],
+                      "overallControlPercent": null,
+                      "totalManualEntry": true,
+                      "calculatedEmissionsTons": 0.0700,
+                      "calculationComment": "I found this calculation in AP42",
+                      "pollutantCode": {
+                        "pollutantCode": "VOC",
+                        "pollutantName": "Volatile Organic Compounds",
+                        "pollutantCasId": null
+                      },
+                      "totalEmissions": {
+                        "value": 140,
+                        "unit": {
+                          "code": "LB",
+                          "description": "POUNDS"
+                        }
+                      },
+                      "emissionCalculationMethodCode": {
+                        "code": "8",
+                        "description": "USEPA Emission Factor (no Control Efficiency used)",
+                        "shortName": null
+                      },
+                      "emissionFactor": 12,
+                      "emissionFactorText": "(AP42 Text: Section 1.1)",
+                      "emissionFactorNumeratorUnitofMeasureCode": {
+                        "code": "LB",
+                        "description": "POUNDS"
+                      },
+                      "emissionFactorDenominatorUnitofMeasureCode": {
+                        "code": "EACH",
+                        "description": "EACH"
+                      },
+                      "comment": null,
+                      "stackTestDate": null
+                    }
+                  ],
+                  "startDate": null,
+                  "endDate": null,
+                  "calculationDataYear": null,
+                  "calculationDataSource": null,
+                  "supplementalCalculationParameter": null
+                }
+              ],
+              "releasePointApportionment": [
+                {
+                  "releasePointIdentification": [
+                    {
+                      "identifier": "Stack 3",
+                      "programSystemCode": "GADNR",
+                      "effectiveDate": null,
+                      "endDate": null,
+                      "identifierIsReadOnly": null
+                    }
+                  ],
+                  "pathIdentification": [],
+                  "averagePercentEmissions": 100.00,
+                  "comment": null,
+                  "releasePointApportionmentIsUncontrolled": "true"
+                }
+              ],
+              "emissionsTypeCode": null,
+              "processIsReadOnly": null,
+              "processRegulation": null,
+              "processControlApproach": null,
+              "deleteReportingPeriod": null,
+              "permitStatusBeginYear": null,
+              "permitStatusEndYear": null,
+              "maximumTheoreticalEmissions": null,
+              "potentialToEmit": null,
+              "isBillable": null,
+              "insignificantSource": null
+            }
+          ],
+          "unitOperationDate": null,
+          "permitStatusCode": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "unitIsReadOnly": null,
+          "designCapacityIsReadOnly": null,
+          "maximumTheoreticalEmissions": null,
+          "potentialToEmit": null,
+          "unitNaics": null,
+          "permitByRule": null,
+          "engineUseType": null,
+          "engineUseTypeDescription": null,
+          "federalEnforcableLimitText": null,
+          "permitLimitText": null,
+          "unitModificationDate": null,
+          "unitModificationDescription": null,
+          "reportingRequirement": null
+        }
+      ],
+      "releasePoints": [
+        {
+          "identification": [
+            {
+              "identifier": "Coal Handler",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Coal Handling System",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "exitGasFlowRate": {
+            "value": null,
+            "unit": null
+          },
+          "exitGasTemperature": 100,
+          "exitGasVelocity": {
+            "value": null,
+            "unit": null
+          },
+          "fenceLineDistance": {
+            "value": null,
+            "unit": null
+          },
+          "fugitiveAngle": null,
+          "fugitiveHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackDiameter": {
+            "value": null,
+            "unit": null
+          },
+          "stackHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackWidth": {
+            "value": null,
+            "unit": null
+          },
+          "stackLength": {
+            "value": null,
+            "unit": null
+          },
+          "releasePointTypeCode": null,
+          "releasePointGeographicCoordinates": {
+            "latitudeMeasure": "33.653330",
+            "longitudeMeasure": "-84.401100",
+            "midPoint2LatitudeMeasure": null,
+            "midPoint2LongitudeMeasure": null,
+            "sourceMapScaleNumber": null,
+            "horizontalAccuracyMeasure": null,
+            "horizontalAccuracyUnitofMeasure": null,
+            "horizontalCollectionMethodCode": null,
+            "horizontalReferenceDatumCode": null,
+            "geographicReferencePointCode": null,
+            "dataCollectionDate": null,
+            "geographicComment": null,
+            "verticalMeasure": null,
+            "verticalUnitofMeasureCode": null,
+            "verticalCollectionMethodCode": null,
+            "verticalReferenceDatumCode": null,
+            "verificationMethodCode": null,
+            "coordinateDataSourceCode": null,
+            "geometricTypeCode": null,
+            "areaWithinPerimeter": null,
+            "areaWithinPerimeterUnitofMeasureCode": null,
+            "geographicCoordinateIsReadOnly": null
+          },
+          "releasePointIsReadOnly": null,
+          "stackHeightIsReadOnly": null,
+          "stackDiameterIsReadOnly": null,
+          "widthIsReadOnly": null,
+          "lengthIsReadOnly": null,
+          "exitGasVelocityIsReadOnly": null,
+          "exitGasFlowRateIsReadOnly": null,
+          "exitGasTemperatureIsReadOnly": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "exitGasTemperatureAmbient": null,
+          "exhaustMoisturePercent": null,
+          "bypassFlag": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Scrubber 1",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Scrubber stack serving unit SG01",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "exitGasFlowRate": {
+            "value": null,
+            "unit": null
+          },
+          "exitGasTemperature": null,
+          "exitGasVelocity": {
+            "value": 67,
+            "unit": {
+              "code": "FPS",
+              "description": "FEET PER SECOND"
+            }
+          },
+          "fenceLineDistance": {
+            "value": null,
+            "unit": null
+          },
+          "fugitiveAngle": null,
+          "fugitiveHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackDiameter": {
+            "value": null,
+            "unit": null
+          },
+          "stackHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackWidth": {
+            "value": null,
+            "unit": null
+          },
+          "stackLength": {
+            "value": null,
+            "unit": null
+          },
+          "releasePointTypeCode": null,
+          "releasePointGeographicCoordinates": {
+            "latitudeMeasure": "33.653330",
+            "longitudeMeasure": "-84.401100",
+            "midPoint2LatitudeMeasure": null,
+            "midPoint2LongitudeMeasure": null,
+            "sourceMapScaleNumber": null,
+            "horizontalAccuracyMeasure": null,
+            "horizontalAccuracyUnitofMeasure": null,
+            "horizontalCollectionMethodCode": null,
+            "horizontalReferenceDatumCode": null,
+            "geographicReferencePointCode": null,
+            "dataCollectionDate": null,
+            "geographicComment": null,
+            "verticalMeasure": null,
+            "verticalUnitofMeasureCode": null,
+            "verticalCollectionMethodCode": null,
+            "verticalReferenceDatumCode": null,
+            "verificationMethodCode": null,
+            "coordinateDataSourceCode": null,
+            "geometricTypeCode": null,
+            "areaWithinPerimeter": null,
+            "areaWithinPerimeterUnitofMeasureCode": null,
+            "geographicCoordinateIsReadOnly": null
+          },
+          "releasePointIsReadOnly": null,
+          "stackHeightIsReadOnly": null,
+          "stackDiameterIsReadOnly": null,
+          "widthIsReadOnly": null,
+          "lengthIsReadOnly": null,
+          "exitGasVelocityIsReadOnly": null,
+          "exitGasFlowRateIsReadOnly": null,
+          "exitGasTemperatureIsReadOnly": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "exitGasTemperatureAmbient": null,
+          "exhaustMoisturePercent": null,
+          "bypassFlag": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Stack 1",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Stack liner serving SG01",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "exitGasFlowRate": {
+            "value": 10000,
+            "unit": {
+              "code": "ACFS",
+              "description": "ACTUAL CUBIC FEET PER SECOND"
+            }
+          },
+          "exitGasTemperature": 100,
+          "exitGasVelocity": {
+            "value": 100,
+            "unit": {
+              "code": "FPS",
+              "description": "FEET PER SECOND"
+            }
+          },
+          "fenceLineDistance": {
+            "value": null,
+            "unit": null
+          },
+          "fugitiveAngle": null,
+          "fugitiveHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackDiameter": {
+            "value": null,
+            "unit": null
+          },
+          "stackHeight": {
+            "value": 100.0,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackWidth": {
+            "value": 10,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackLength": {
+            "value": 10,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "releasePointTypeCode": null,
+          "releasePointGeographicCoordinates": {
+            "latitudeMeasure": "33.653330",
+            "longitudeMeasure": "-84.401100",
+            "midPoint2LatitudeMeasure": null,
+            "midPoint2LongitudeMeasure": null,
+            "sourceMapScaleNumber": null,
+            "horizontalAccuracyMeasure": null,
+            "horizontalAccuracyUnitofMeasure": null,
+            "horizontalCollectionMethodCode": null,
+            "horizontalReferenceDatumCode": null,
+            "geographicReferencePointCode": null,
+            "dataCollectionDate": null,
+            "geographicComment": null,
+            "verticalMeasure": null,
+            "verticalUnitofMeasureCode": null,
+            "verticalCollectionMethodCode": null,
+            "verticalReferenceDatumCode": null,
+            "verificationMethodCode": null,
+            "coordinateDataSourceCode": null,
+            "geometricTypeCode": null,
+            "areaWithinPerimeter": null,
+            "areaWithinPerimeterUnitofMeasureCode": null,
+            "geographicCoordinateIsReadOnly": null
+          },
+          "releasePointIsReadOnly": null,
+          "stackHeightIsReadOnly": null,
+          "stackDiameterIsReadOnly": null,
+          "widthIsReadOnly": null,
+          "lengthIsReadOnly": null,
+          "exitGasVelocityIsReadOnly": null,
+          "exitGasFlowRateIsReadOnly": null,
+          "exitGasTemperatureIsReadOnly": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "exitGasTemperatureAmbient": null,
+          "exhaustMoisturePercent": null,
+          "bypassFlag": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Stack 2",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Stack liner serving SG02",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "exitGasFlowRate": {
+            "value": 100000,
+            "unit": {
+              "code": "ACFS",
+              "description": "ACTUAL CUBIC FEET PER SECOND"
+            }
+          },
+          "exitGasTemperature": 315,
+          "exitGasVelocity": {
+            "value": 100,
+            "unit": {
+              "code": "FPS",
+              "description": "FEET PER SECOND"
+            }
+          },
+          "fenceLineDistance": {
+            "value": null,
+            "unit": null
+          },
+          "fugitiveAngle": null,
+          "fugitiveHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackDiameter": {
+            "value": null,
+            "unit": null
+          },
+          "stackHeight": {
+            "value": 1000.0,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackWidth": {
+            "value": 100,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackLength": {
+            "value": 10,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "releasePointTypeCode": null,
+          "releasePointGeographicCoordinates": {
+            "latitudeMeasure": "33.653330",
+            "longitudeMeasure": "-84.401100",
+            "midPoint2LatitudeMeasure": null,
+            "midPoint2LongitudeMeasure": null,
+            "sourceMapScaleNumber": null,
+            "horizontalAccuracyMeasure": null,
+            "horizontalAccuracyUnitofMeasure": null,
+            "horizontalCollectionMethodCode": null,
+            "horizontalReferenceDatumCode": null,
+            "geographicReferencePointCode": null,
+            "dataCollectionDate": null,
+            "geographicComment": null,
+            "verticalMeasure": null,
+            "verticalUnitofMeasureCode": null,
+            "verticalCollectionMethodCode": null,
+            "verticalReferenceDatumCode": null,
+            "verificationMethodCode": null,
+            "coordinateDataSourceCode": null,
+            "geometricTypeCode": null,
+            "areaWithinPerimeter": null,
+            "areaWithinPerimeterUnitofMeasureCode": null,
+            "geographicCoordinateIsReadOnly": null
+          },
+          "releasePointIsReadOnly": null,
+          "stackHeightIsReadOnly": null,
+          "stackDiameterIsReadOnly": null,
+          "widthIsReadOnly": null,
+          "lengthIsReadOnly": null,
+          "exitGasVelocityIsReadOnly": null,
+          "exitGasFlowRateIsReadOnly": null,
+          "exitGasTemperatureIsReadOnly": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "exitGasTemperatureAmbient": null,
+          "exhaustMoisturePercent": null,
+          "bypassFlag": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Stack 3",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "Stack serving Combustion turbine 5A",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": null,
+          "exitGasFlowRate": {
+            "value": 5183.627,
+            "unit": {
+              "code": "ACFM",
+              "description": "ACTUAL CUBIC FEET PER MINUTE"
+            }
+          },
+          "exitGasTemperature": 100,
+          "exitGasVelocity": {
+            "value": 66,
+            "unit": {
+              "code": "FPM",
+              "description": "FEET PER MINUTE"
+            }
+          },
+          "fenceLineDistance": {
+            "value": null,
+            "unit": null
+          },
+          "fugitiveAngle": null,
+          "fugitiveHeight": {
+            "value": null,
+            "unit": null
+          },
+          "stackDiameter": {
+            "value": 10,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackHeight": {
+            "value": 100.0,
+            "unit": {
+              "code": "FT",
+              "description": "FEET"
+            }
+          },
+          "stackWidth": {
+            "value": null,
+            "unit": null
+          },
+          "stackLength": {
+            "value": null,
+            "unit": null
+          },
+          "releasePointTypeCode": null,
+          "releasePointGeographicCoordinates": {
+            "latitudeMeasure": null,
+            "longitudeMeasure": null,
+            "midPoint2LatitudeMeasure": null,
+            "midPoint2LongitudeMeasure": null,
+            "sourceMapScaleNumber": null,
+            "horizontalAccuracyMeasure": null,
+            "horizontalAccuracyUnitofMeasure": null,
+            "horizontalCollectionMethodCode": null,
+            "horizontalReferenceDatumCode": null,
+            "geographicReferencePointCode": null,
+            "dataCollectionDate": null,
+            "geographicComment": null,
+            "verticalMeasure": null,
+            "verticalUnitofMeasureCode": null,
+            "verticalCollectionMethodCode": null,
+            "verticalReferenceDatumCode": null,
+            "verificationMethodCode": null,
+            "coordinateDataSourceCode": null,
+            "geometricTypeCode": null,
+            "areaWithinPerimeter": null,
+            "areaWithinPerimeterUnitofMeasureCode": null,
+            "geographicCoordinateIsReadOnly": null
+          },
+          "releasePointIsReadOnly": null,
+          "stackHeightIsReadOnly": null,
+          "stackDiameterIsReadOnly": null,
+          "widthIsReadOnly": null,
+          "lengthIsReadOnly": null,
+          "exitGasVelocityIsReadOnly": null,
+          "exitGasFlowRateIsReadOnly": null,
+          "exitGasTemperatureIsReadOnly": null,
+          "permitStatusBeginYear": null,
+          "permitStatusEndYear": null,
+          "exitGasTemperatureAmbient": null,
+          "exhaustMoisturePercent": null,
+          "bypassFlag": null
+        }
+      ],
+      "controlPaths": [
+        {
+          "identification": [
+            {
+              "identifier": "Path 1",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": null,
+          "percentPathEffectiveness": 2,
+          "controlPathDefinition": [
+            {
+              "controlIdentification": [
+                {
+                  "identifier": "Control 1",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "pathIdentification": [],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            },
+            {
+              "controlIdentification": [],
+              "pathIdentification": [
+                {
+                  "identifier": "Path 2",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            }
+          ],
+          "controlPathPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "6014751",
+                "pollutantName": "(Perfluorododecyl)ethyl methacrylate",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 0.0
+            }
+          ],
+          "name": "Path 1",
+          "pathIsReadOnly": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Path 2",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": null,
+          "percentPathEffectiveness": 3,
+          "controlPathDefinition": [
+            {
+              "controlIdentification": [
+                {
+                  "identifier": "Control 2",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "pathIdentification": [],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            },
+            {
+              "controlIdentification": [],
+              "pathIdentification": [
+                {
+                  "identifier": "Path 3",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            }
+          ],
+          "controlPathPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "106945",
+                "pollutantName": "1-Bromopropane",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 100.0
+            }
+          ],
+          "name": "Path 2",
+          "pathIsReadOnly": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Path 3",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": null,
+          "percentPathEffectiveness": 4,
+          "controlPathDefinition": [
+            {
+              "controlIdentification": [
+                {
+                  "identifier": "Control 3",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "pathIdentification": [],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            },
+            {
+              "controlIdentification": [],
+              "pathIdentification": [
+                {
+                  "identifier": "Path 4",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            }
+          ],
+          "controlPathPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "613",
+                "pollutantName": "Glasswool (Man-Made Fibers)",
+                "pollutantCasId": "308066-92-4"
+              },
+              "percentControlMeasuresReductionEfficiency": 1.0
+            }
+          ],
+          "name": "Path 3",
+          "pathIsReadOnly": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Path 4",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": null,
+          "percentPathEffectiveness": 5,
+          "controlPathDefinition": [
+            {
+              "controlIdentification": [
+                {
+                  "identifier": "Control 4",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "pathIdentification": [],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            },
+            {
+              "controlIdentification": [],
+              "pathIdentification": [
+                {
+                  "identifier": "Path 5",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "averagePercentApportionment": 50.00,
+              "sequenceNumber": 1
+            }
+          ],
+          "controlPathPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "75014",
+                "pollutantName": "Vinyl Chloride",
+                "pollutantCasId": "75-01-4"
+              },
+              "percentControlMeasuresReductionEfficiency": 0.0
+            }
+          ],
+          "name": "Path 4",
+          "pathIsReadOnly": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Path 5",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": null,
+          "percentPathEffectiveness": 6,
+          "controlPathDefinition": [
+            {
+              "controlIdentification": [
+                {
+                  "identifier": "Control 5",
+                  "programSystemCode": "GADNR",
+                  "effectiveDate": null,
+                  "endDate": null,
+                  "identifierIsReadOnly": null
+                }
+              ],
+              "pathIdentification": [],
+              "averagePercentApportionment": 100.00,
+              "sequenceNumber": 1
+            }
+          ],
+          "controlPathPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "1652637",
+                "pollutantName": "Perfluorooctanesulfonamido ammonium iodide",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 95.0
+            }
+          ],
+          "name": "Path 5",
+          "pathIsReadOnly": null
+        }
+      ],
+      "controls": [
+        {
+          "identification": [
+            {
+              "identifier": "Control 1",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "test control 1",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": "test",
+          "controlMeasureCode": {
+            "code": "112",
+            "description": "Afterburner",
+            "shortName": null
+          },
+          "percentControlEffectiveness": 25.0,
+          "numberOperatingMonths": null,
+          "startDate": "1900-01-01",
+          "upgradeDate": "1901-01-01",
+          "endDate": "1902-01-01",
+          "upgradeDescription": null,
+          "controlPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "79345",
+                "pollutantName": "1,1,2,2-Tetrachloroethane",
+                "pollutantCasId": "79-34-5"
+              },
+              "percentControlMeasuresReductionEfficiency": 25.0
+            }
+          ],
+          "controlIsReadOnly": null,
+          "controlManufactureMake": null,
+          "controlManufactureModel": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Control 2",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "test control 2",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": 2017,
+          "comment": "test",
+          "controlMeasureCode": {
+            "code": "48",
+            "description": "Adsorption - Activated Carbon or other",
+            "shortName": null
+          },
+          "percentControlEffectiveness": 25.0,
+          "numberOperatingMonths": null,
+          "startDate": "1999-01-01",
+          "upgradeDate": "2010-01-01",
+          "endDate": "2020-01-01",
+          "upgradeDescription": null,
+          "controlPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "CO2",
+                "pollutantName": "Carbon Dioxide",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 99.9
+            }
+          ],
+          "controlIsReadOnly": null,
+          "controlManufactureMake": null,
+          "controlManufactureModel": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Control 3",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "test control 3",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": null,
+          "comment": null,
+          "controlMeasureCode": {
+            "code": "31",
+            "description": "Air Injection",
+            "shortName": null
+          },
+          "percentControlEffectiveness": 25.0,
+          "numberOperatingMonths": null,
+          "startDate": "1900-01-01",
+          "upgradeDate": "1900-01-01",
+          "endDate": "1900-01-01",
+          "upgradeDescription": null,
+          "controlPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "CO",
+                "pollutantName": "Carbon Monoxide",
+                "pollutantCasId": "630-08-0"
+              },
+              "percentControlMeasuresReductionEfficiency": 98.9
+            }
+          ],
+          "controlIsReadOnly": null,
+          "controlManufactureMake": null,
+          "controlManufactureModel": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Control 4",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "test control 4",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": null,
+          "comment": null,
+          "controlMeasureCode": {
+            "code": "328",
+            "description": "Internal Floating Roof",
+            "shortName": null
+          },
+          "percentControlEffectiveness": 25.0,
+          "numberOperatingMonths": null,
+          "startDate": "2050-12-31",
+          "upgradeDate": "2050-12-31",
+          "endDate": "2050-12-31",
+          "upgradeDescription": null,
+          "controlPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "NOX",
+                "pollutantName": "Nitrogen Oxides",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 5.0
+            }
+          ],
+          "controlIsReadOnly": null,
+          "controlManufactureMake": null,
+          "controlManufactureModel": null
+        },
+        {
+          "identification": [
+            {
+              "identifier": "Control 5",
+              "programSystemCode": "GADNR",
+              "effectiveDate": null,
+              "endDate": null,
+              "identifierIsReadOnly": null
+            }
+          ],
+          "description": "test control 5",
+          "statusCode": {
+            "code": "OP",
+            "description": "Operating",
+            "shortName": null
+          },
+          "statusCodeYear": null,
+          "comment": null,
+          "controlMeasureCode": {
+            "code": "157",
+            "description": "Screen",
+            "shortName": null
+          },
+          "percentControlEffectiveness": 25.0,
+          "numberOperatingMonths": null,
+          "startDate": null,
+          "upgradeDate": null,
+          "endDate": null,
+          "upgradeDescription": null,
+          "controlPollutants": [
+            {
+              "pollutantCode": {
+                "pollutantCode": "929373",
+                "pollutantName": "Diethylene Glycol Monovinyl Ether",
+                "pollutantCasId": null
+              },
+              "percentControlMeasuresReductionEfficiency": 99.9
+            }
+          ],
+          "controlIsReadOnly": null,
+          "controlManufactureMake": null,
+          "controlManufactureModel": null
+        }
+      ],
+      "facilityNAICS": [
+        {
+          "code": 336111,
+          "naicsCodeType": "PRIMARY"
+        }
+      ],
+      "facilityContacts": [],
+      "hapFacilityCategoryCode": null,
+      "coordinateTolerance": null,
+      "facilitySiteComment": null,
+      "facilityNameIsReadOnly": null,
+      "locationIsReadOnly": null,
+      "primaryNAICSIsReadOnly": null,
+      "permitStatusBeginYear": null,
+      "permitStatusEndYear": null,
+      "maximumTheoreticalEmissions": null,
+      "potentialToEmit": null,
+      "isBillable": null,
+      "hasSensitiveData": null,
+      "permitNumber": null,
+      "permitTypes": [],
+      "employeeCount": null,
+      "constructionLimitDescription": null,
+      "sltFacilityCategoryCode": null
+    }
+  ],
+  "userIdentifier": null,
+  "model": null,
+  "modelVersion": null,
+  "emissionsCreationDate": null,
+  "submittalComment": null,
+  "location": [],
+  "event": []
+}
