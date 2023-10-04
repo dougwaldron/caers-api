@@ -1,7 +1,5 @@
 ﻿using Caers.Api.Elements;
 using Caers.Api.SchemaEntities;
-using System.Diagnostics;
-using System.Globalization;
 using System.Text.Json;
 
 namespace Caers.Api;
@@ -21,30 +19,36 @@ public static class SumCoEmissions
                 )
             ).Sum();
 
-    public static double UsingSystemJson(string s) =>
-        JsonDocument.Parse(s).RootElement
+    public static double UsingSystemJson(string s)
+    {
+        using var jsonDocument = JsonDocument.Parse(s);
+        return jsonDocument.RootElement
             .GetProperty("facilitySite").EnumerateArray().First()
             .GetProperty("emissionsUnits").EnumerateArray()
             .SelectMany(emissionsUnit => emissionsUnit.GetProperty("emissionsProcesses").EnumerateArray()
                 .SelectMany(emissionsProcess => emissionsProcess.GetProperty("reportingPeriods").EnumerateArray()
                     .SelectMany(reportingPeriod => reportingPeriod.GetProperty("emissions").EnumerateArray()
                         .Where(emission =>
-                            emission.GetProperty("pollutantCode").GetProperty("pollutantCode").GetString() == "CO")
+                            emission.GetProperty("pollutantCode").GetProperty("pollutantCode").ValueEquals("CO"))
                         .Select(emission => emission.GetProperty("totalEmissions").GetProperty("value").GetDouble())
                     )
                 )
             ).Sum();
+    }
 
-    public static double UsingElementTypes(string s) =>
-        new Report(JsonDocument.Parse(s).RootElement)
+    public static double UsingElementTypes(string s)
+    {
+        using var jsonDocument = JsonDocument.Parse(s);
+        return new Report(jsonDocument.RootElement)
             .GetFirstFacility()
             .GetEmissionsUnits()
             .Values.SelectMany(emissionsUnit => emissionsUnit.GetEmissionsProcesses()
                 .Values.SelectMany(emissionsProcess => emissionsProcess.GetReportingPeriods()
                     .Values.SelectMany(reportingPeriod => reportingPeriod.GetEmissions()
-                        .Values.Where(emission => emission.GetPollutantCode == "CO")
+                        .Values.Where(emission => emission.PollutantCodeEquals("CO"))
                         .Select(emission => emission.GetTotalEmissions)
                     )
                 )
             ).Sum();
+    }
 }

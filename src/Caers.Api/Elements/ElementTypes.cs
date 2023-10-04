@@ -71,6 +71,6 @@ public record Emission : Element
 {
     private static string PollutantCode => "pollutantCode";
     private static string TotalEmissions => "totalEmissions";
-    public string? GetPollutantCode => Value.GetProperty(PollutantCode).GetProperty(PollutantCode).GetString();
+    public bool PollutantCodeEquals(string s) => Value.GetProperty(PollutantCode).GetProperty(PollutantCode).ValueEquals(s);
     public double GetTotalEmissions => Value.GetProperty(TotalEmissions).GetProperty("value").GetDouble();
 }
