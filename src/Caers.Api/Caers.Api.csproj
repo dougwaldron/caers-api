@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="BenchmarkDotNet" Version="0.13.8" />
       <PackageReference Include="Corvus.Json.ExtendedTypes" Version="1.0.18" />
       <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
     </ItemGroup>

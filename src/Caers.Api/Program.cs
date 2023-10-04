@@ -1,95 +1,24 @@
-﻿using Caers.Api.Elements;
-using Caers.Api.SchemaEntities;
-using System.Diagnostics;
-using System.Globalization;
-using System.Text.Json;
+﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using Caers.Api;
+using System.Diagnostics.CodeAnalysis;
 
-var emissionsReportJson = await File.ReadAllTextAsync(@"SampleReport\CAERS_ExampleFile_v1.0.json");
+_ = BenchmarkRunner.Run<JsonParsingBenchmarks>();
 
-Console.WriteLine(UseSystemJson(emissionsReportJson));
-Console.WriteLine(UseCorvusJson(emissionsReportJson));
-Console.WriteLine(UseElementTypes(emissionsReportJson));
-Console.WriteLine("---");
-
-Profile("1 System", 3000, () => UseSystemJson(emissionsReportJson));
-Profile("2 System", 3000, () => UseSystemJson(emissionsReportJson));
-Profile("3 System", 3000, () => UseSystemJson(emissionsReportJson));
-Profile("1 Corvus", 3000, () => UseCorvusJson(emissionsReportJson));
-Profile("2 Corvus", 3000, () => UseCorvusJson(emissionsReportJson));
-Profile("3 Corvus", 3000, () => UseCorvusJson(emissionsReportJson));
-Profile("1 ElementTypes", 3000, () => UseElementTypes(emissionsReportJson));
-Profile("2 ElementTypes", 3000, () => UseElementTypes(emissionsReportJson));
-Profile("3 ElementTypes", 3000, () => UseElementTypes(emissionsReportJson));
-
-return;
-
-double UseCorvusJson(string s) =>
-    EmissionsReport.Parse(s)
-        .FacilitySite.EnumerateArray().First()
-        .EmissionsUnits.EnumerateArray()
-        .SelectMany(emissionsUnit => emissionsUnit.EmissionsProcesses.EnumerateArray()
-            .SelectMany(emissionsProcess => emissionsProcess.ReportingPeriods.EnumerateArray()
-                .SelectMany(reportingPeriod => reportingPeriod.Emissions.EnumerateArray()
-                    .Where(emission => emission.PollutantCode.PollutantCode.Equals("CO"))
-                    .Select(emission => (double)emission.TotalEmissions.Value)
-                )
-            )
-        ).Sum();
-
-double UseSystemJson(string s) =>
-    JsonDocument.Parse(s).RootElement
-        .GetProperty("facilitySite").EnumerateArray().First()
-        .GetProperty("emissionsUnits").EnumerateArray()
-        .SelectMany(emissionsUnit => emissionsUnit.GetProperty("emissionsProcesses").EnumerateArray()
-            .SelectMany(emissionsProcess => emissionsProcess.GetProperty("reportingPeriods").EnumerateArray()
-                .SelectMany(reportingPeriod => reportingPeriod.GetProperty("emissions").EnumerateArray()
-                    .Where(emission =>
-                        emission.GetProperty("pollutantCode").GetProperty("pollutantCode").GetString() == "CO")
-                    .Select(emission => emission.GetProperty("totalEmissions").GetProperty("value").GetDouble())
-                )
-            )
-        ).Sum();
-
-double UseElementTypes(string s) =>
-    new Report(JsonDocument.Parse(s).RootElement)
-        .GetFirstFacility()
-        .GetEmissionsUnits()
-        .Values.SelectMany(emissionsUnit => emissionsUnit.GetEmissionsProcesses()
-            .Values.SelectMany(emissionsProcess => emissionsProcess.GetReportingPeriods()
-                .Values.SelectMany(reportingPeriod => reportingPeriod.GetEmissions()
-                    .Values.Where(emission => emission.GetPollutantCode == "CO")
-                    .Select(emission => emission.GetTotalEmissions)
-                )
-            )
-        ).Sum();
-
-static void Profile(string description, int iterations, Action func)
+[SuppressMessage("Design", "CA1050:Declare types in namespaces")]
+[SuppressMessage("Performance", "CA1822:Mark members as static")]
+[SuppressMessage("SonarLint", "S3903:Types should be defined in named namespaces")]
+[MemoryDiagnoser]
+public class JsonParsingBenchmarks
 {
-    // From: https://stackoverflow.com/a/1048708/212978
+    private static readonly string EmissionsReportJson = File.ReadAllText(@"SampleReport\CAERS_ExampleFile_v1.0.json");
 
-    //Run at highest priority to minimize fluctuations caused by other processes/threads
-    Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
-    Thread.CurrentThread.Priority = ThreadPriority.Highest;
+    [Benchmark]
+    public double GetCoEmissionsUsingCorvusJson() => SumCoEmissions.UsingCorvusJson(EmissionsReportJson);
 
-    // warm up 
-    func();
+    [Benchmark]
+    public double GetCoEmissionsUsingSystemJson() => SumCoEmissions.UsingSystemJson(EmissionsReportJson);
 
-    var watch = new Stopwatch();
-
-    // clean up
-    GC.Collect();
-    GC.WaitForPendingFinalizers();
-    GC.Collect();
-
-    watch.Start();
-
-    for (var i = 0; i < iterations; i++)
-    {
-        func();
-    }
-
-    watch.Stop();
-
-    Console.WriteLine(
-        $"{description} -> {(watch.Elapsed.TotalMilliseconds / iterations).ToString("F3", CultureInfo.InvariantCulture)}");
+    [Benchmark]
+    public double GetCoEmissionsUsingElementTypes() => SumCoEmissions.UsingElementTypes(EmissionsReportJson);
 }
